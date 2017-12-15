@@ -1,9 +1,14 @@
 ---
 pipeline:
+  test:
+    image: golang
+    commands:
+      - cd outyet
+      - go test
+
   build:
     image: golang
     commands:
       - cd outyet
       - go build
-      - go test
 
