@@ -23,10 +23,6 @@ pipeline:
     debug: false
     secrets: [google_credentials]
 
-
-    # token: >
-    #   $$CREDS
-
     when:
       branch: [master, develop]
 
