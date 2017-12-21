@@ -1,6 +1,6 @@
 ---
 pipeline:
-  build:
+  compile:
     image: golang
     commands:
       - cd outyet
@@ -13,8 +13,15 @@ pipeline:
       - cd outyet
       - go test
 
-
   publish:
     gcr:
       repo: gcr.io/packetfield/example
+      tags:
+        - "${DRONE_COMMIT_SHA:0:8}"
+        - "${DRONE_BRANCH}"
+        - "tag-${DRONE_TAG##v}"
+      debug: true
+
+      # when:
+      #   branch: [master, develop]
 
