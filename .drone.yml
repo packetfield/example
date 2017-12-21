@@ -21,8 +21,11 @@ pipeline:
       - "${DRONE_BRANCH}"
       - "tag-${DRONE_TAG##v}"
     debug: false
-    token: >
-      $$CREDS
+    secrets: [google_credentials]
+
+
+    # token: >
+    #   $$CREDS
 
     when:
       branch: [master, develop]
