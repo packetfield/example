@@ -1,2 +1,5 @@
-FROM golang:onbuild
-EXPOSE 8080
+FROM alpine
+
+COPY outyet /outyet
+
+CMD /outyet

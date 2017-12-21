@@ -3,20 +3,19 @@ pipeline:
   compile:
     image: golang
     commands:
-      - cd hello
-      - go get
+      - cd outyet
       - go build
 
-  # test:
-  #   image: golang
-  #   commands:
-  #     - cd outyet
-  #     - go test
+  test:
+    image: golang
+    commands:
+      - cd outyet
+      - go test
 
   publish:
     image: plugins/gcr
     repo: packetfield/example
-    dockerfile: hello/Dockerfile
+    dockerfile: outyet/Dockerfile
     tags:
       - latest
       - "${DRONE_BRANCH}"
