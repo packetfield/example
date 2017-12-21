@@ -22,7 +22,7 @@ pipeline:
       - "tag-${DRONE_TAG##v}"
     debug: false
     token: >
-      $$creds
+      $$CREDS
 
     when:
       branch: [master, develop]
