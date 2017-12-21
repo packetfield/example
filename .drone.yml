@@ -7,23 +7,15 @@ pipeline:
       - go build
       - go test
 
-  # test:
-  #   image: golang
-  #   commands:
-  #     - cd outyet
-  #     - go test
-
   publish:
-    gcr:
-      image: plugins/gcr
-      repo: packetfield/example
-      tags:
-        - latest
-  #       - "${DRONE_COMMIT_SHA:0:8}"
-  #       - "${DRONE_BRANCH}"
-  #       - "tag-${DRONE_TAG##v}"
-  #     debug: true
+    image: plugins/gcr
+    repo: packetfield/example
+    tags:
+      - latest
+      - "${DRONE_BRANCH}"
+      - "tag-${DRONE_TAG##v}"
+    debug: true
 
-      # when:
-      #   branch: [master, develop]
+    when:
+      branch: [master, develop]
 
