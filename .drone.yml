@@ -15,6 +15,7 @@ pipeline:
 
   publish:
     gcr:
+      image: plugins/gcr
       repo: packetfield/example
       tags:
         - latest
