@@ -13,10 +13,11 @@ pipeline:
   #     - cd outyet
   #     - go test
 
-  # publish:
-  #   gcr:
-  #     repo: gcr.io/packetfield/example
-  #     tags:
+  publish:
+    gcr:
+      repo: packetfield/example
+      tags:
+        - latest
   #       - "${DRONE_COMMIT_SHA:0:8}"
   #       - "${DRONE_BRANCH}"
   #       - "tag-${DRONE_TAG##v}"
