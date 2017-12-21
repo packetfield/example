@@ -7,8 +7,14 @@ pipeline:
       - go build
       - go test
 
+  test:
+    image: golang
+    commands:
+      - cd outyet
+      - go test
 
-publish:
-  gcr:
-    repo: gcr.io/packetfield/example
+
+  publish:
+    gcr:
+      repo: gcr.io/packetfield/example
 
