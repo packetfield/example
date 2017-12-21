@@ -20,8 +20,14 @@ pipeline:
       - latest
       - "${DRONE_BRANCH}"
       - "tag-${DRONE_TAG##v}"
-    debug: false
     secrets: [google_credentials]
+
+    ##### Sadly (although I suppose its a security feature) we need to add google service account credentials to every
+    ##### drone repo... Global secrets are an "Enterprise" drone only feature :-(
+    #
+    #  Note.. you need to add this secret for drone to be able to push GCR images
+    #  EG:
+    #  drone secret add --repository packetfield/example --name google_credentials --value @/path/to/service_account.json
 
     when:
       branch: [master, develop]
