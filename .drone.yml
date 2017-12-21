@@ -4,14 +4,14 @@ pipeline:
     image: golang
     commands:
       - cd hello
+      - go get
       - go build
 
-  test:
-    image: golang
-    commands:
-      - cd outyet
-      - go build
-      - go test
+  # test:
+  #   image: golang
+  #   commands:
+  #     - cd outyet
+  #     - go test
 
   publish:
     image: plugins/gcr
