@@ -3,6 +3,12 @@ pipeline:
   compile:
     image: golang
     commands:
+      - cd hello
+      - go build
+
+  test:
+    image: golang
+    commands:
       - cd outyet
       - go build
       - go test
@@ -10,11 +16,12 @@ pipeline:
   publish:
     image: plugins/gcr
     repo: packetfield/example
+    dockerfile: hello/Dockerfile
     tags:
       - latest
       - "${DRONE_BRANCH}"
       - "tag-${DRONE_TAG##v}"
-    debug: true
+    debug: false
 
     when:
       branch: [master, develop]
